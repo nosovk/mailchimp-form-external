@@ -17,3 +17,7 @@ To get started with Svelte, along with [Serverless Functions](https://vercel.com
 ```shell
 $ npx degit sveltejs/template my-svelte-project
 ```
+
+
+### env
+Mailchimp key exposed by versel via `mailchimpkey` env variable
