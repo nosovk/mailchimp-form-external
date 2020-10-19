@@ -47,6 +47,7 @@ app.post('/', async (req, res) => {
     return res.status(400).send();
 });
 
-app.listen(process.env.PORT, () => {
-    console.log('[OK] Server started on port ' + process.env.PORT);
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`[OK] Server started on port ${port}`);
 });
