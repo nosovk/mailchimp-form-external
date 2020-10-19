@@ -8,11 +8,7 @@ const app = express();
 
 app.use(express.json());
 
-if (process.env.NODE_ENV === 'production') {
-    app.use('/', express.static(path.join(__dirname, 'form', 'build')))
-}
-
-app.get('/audiences', async (req, res) => {
+app.get('/api/audiences', async (req, res) => {
     const resp = await fetch(`https://us20.api.mailchimp.com/3.0/lists?apikey=${process.env.MAILCHIMP_KEY}`);
     const body = await resp.json();
     const { lists } = body;
@@ -23,7 +19,7 @@ app.get('/audiences', async (req, res) => {
     return res.json(mapped);
 });
 
-app.get('/audiences/:id/tags', async (req, res) => {
+app.get('/api/audiences/:id/tags', async (req, res) => {
     const { id } = req.params;
     const resp = await fetch(`https://us20.api.mailchimp.com/3.0/lists/${id}/segments/?apikey=${process.env.MAILCHIMP_KEY}&type=static`);
     const body = await resp.json();
@@ -38,7 +34,7 @@ app.get('/audiences/:id/tags', async (req, res) => {
 // audience строка - аудитория переданная с фронта
 // tags массив строк - тэги переданные с фронта
 // contact - объект - данные контакта
-app.post('/addContact', async (req, res) => {
+app.post('/api/addContact', async (req, res) => {
     const { contact, audience, tags } = req.body;
     const status = 'pending';
 
