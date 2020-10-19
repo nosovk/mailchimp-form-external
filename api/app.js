@@ -53,10 +53,10 @@ app.post('/api/addContact', async (req, res) => {
     });
 
     if (resp.ok) {
-        return res.status(201).send();
+        return res.status(201).end();
     } 
 
-    return res.status(400).send();
+    return res.status(400).end();
 });
 
 app.listen(process.env.PORT, () => {

@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint . --ignore-path .gitignore",
+    "lint": "eslint . --ignore-path .gitignore --fix",
     "lint-css": "stylelint \"src/**/*.+(scss|css)\" --fix"
   },
   "eslintConfig": {
