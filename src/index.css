@@ -34,7 +34,7 @@ h1 {
   padding: 20px;
 }
 
-.form-contol label {
+.form-control label {
   display: block;
   margin-top: 8px;
   font-weight: bold;
@@ -44,7 +44,7 @@ h1 {
   color: #5d5d5d;
 }
 
-.form-contol input, .form-contol select {
+.form-control input, .form-control select {
   display: block;
   margin: 0;
   padding: 10px;

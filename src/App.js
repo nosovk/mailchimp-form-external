@@ -138,27 +138,27 @@ function App() {
             </p>
             <p style={{'color': 'red'}}>{error}</p>
             <div className="fields">
-              <div className="form-contol">
+              <div className="form-control">
                 <label>Email</label>
                 <input type="email" required value={state.email} onChange={onChange('email')}  />
                 <small className={`${errors.email ? 'errors' : ''}`}>{errors.email}</small>
               </div>
-              <div className="form-contol">
+              <div className="form-control">
                 <label>ФИО</label>
                 <input type="text" value={state.fullname} required onChange={onChange('fullname')} />
                 <small className={`${errors.fullname ? 'errors' : ''}`}>{errors.fullname}</small>
               </div>
-              <div className="form-contol">
+              <div className="form-control">
                 <label>Номер телефона</label>
                 <input type="phone" value={state.phone} required onChange={onChange('phone')} />
                 <small className={`${errors.phone ? 'errors' : ''}`}>{errors.phone}</small>
               </div>
-              <div className="form-contol">
+              <div className="form-control">
                 <label>Адрес</label>
                 <input type="text" value={state.address} required onChange={onChange('address')} />
                 <small className={`${errors.address ? 'errors' : ''}`}>{errors.address}</small>
               </div>
-              <div className="form-contol">
+              <div className="form-control">
                 <label>Организация</label>
                 <input type="text" value={state.organization} required onChange={onChange('organization')} />
                 <small className={`${errors.organization ? 'errors' : ''}`}>{errors.organization}</small>
@@ -167,7 +167,7 @@ function App() {
                 !audiences && isLoading 
                 ? <Loader />
                 : (
-                  <div className="form-contol">
+                  <div className="form-control">
                     <label>Аудитории</label>
                     <select value={state.audience} onChange={onChange('audience')}>
                       {
@@ -188,7 +188,7 @@ function App() {
                 state.audience && isLoading 
                 ? <Loader />
                 : tags ? (
-                  <div className="form-contol mutiple-select">
+                  <div className="form-control mutiple-select">
                     <label>Тэги</label>
                     <span className="multiple-selection">{selectedTags.join(', ')}</span>
                     <select value={state.tag} onChange={onChange('tag')}>
