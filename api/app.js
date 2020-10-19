@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 app.get('/api/audiences', async (req, res) => {
-    const resp = await fetch(`https://us20.api.mailchimp.com/3.0/lists?apikey=${process.env.MAILCHIMP_KEY}`);
+    const resp = await fetch(`https://us20.api.mailchimp.com/3.0/lists?apikey=${process.env.mailchimpkey}`);
     const body = await resp.json();
     const { lists } = body;
     const mapped = lists.map(({ id, name }) => ({ id , name }));
@@ -21,7 +21,7 @@ app.get('/api/audiences', async (req, res) => {
 
 app.get('/api/audiences/:id/tags', async (req, res) => {
     const { id } = req.params;
-    const resp = await fetch(`https://us20.api.mailchimp.com/3.0/lists/${id}/segments/?apikey=${process.env.MAILCHIMP_KEY}&type=static`);
+    const resp = await fetch(`https://us20.api.mailchimp.com/3.0/lists/${id}/segments/?apikey=${process.env.mailchimpkey}&type=static`);
     const body = await resp.json();
     const { segments } = body;
     const mapped = segments.map(({ id, name }) => ({ id , name }));
@@ -51,7 +51,7 @@ app.post('/api/addContact', async (req, res) => {
     };
 
 
-    const basicAuthCredits = Buffer.from(`${process.env.USERNAME}:${process.env.MAILCHIMP_KEY}`).toString('base64');
+    const basicAuthCredits = Buffer.from(`${process.env.USERNAME}:${process.env.mailchimpkey}`).toString('base64');
     const resp = await fetch(`https://us20.api.mailchimp.com/3.0/lists/${audience}/members`, {
         method: 'POST',
         headers: {
