@@ -12,9 +12,6 @@ app.get('/api/audiences', async (req, res) => {
     const body = await resp.json();
     const { lists } = body;
     const mapped = lists.map(({ id, name }) => ({ id , name }));
-    // res.header('Access-Control-Allow-Origin', '*');
-    // res.header("Access-Control-Allow-Headers", "content-type, Access-Control-Allow-Headers, Authorization, X-Requested-With, access-control-allow-origin");
-    // res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
     return res.json(mapped);
 });
 
@@ -24,9 +21,6 @@ app.get('/api/audiences/:id/tags', async (req, res) => {
     const body = await resp.json();
     const { segments } = body;
     const mapped = segments.map(({ id, name }) => ({ id , name }));
-    // res.header('Access-Control-Allow-Origin', '*');
-    // res.header("Access-Control-Allow-Headers", "content-type, Access-Control-Allow-Headers, Authorization, X-Requested-With, access-control-allow-origin");
-    // res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
     return res.json(mapped);
 });
 
@@ -59,9 +53,6 @@ app.post('/api/addContact', async (req, res) => {
         },
         body: JSON.stringify(bodyToSend)
     });
-    // res.header('Access-Control-Allow-Origin', '*');
-    // res.header("Access-Control-Allow-Headers", "content-type, Access-Control-Allow-Headers, Authorization, X-Requested-With, access-control-allow-origin");
-    // res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
 
     if (resp.ok) {
         return res.status(201).send();
