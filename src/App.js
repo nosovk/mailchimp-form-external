@@ -188,7 +188,7 @@ function App() {
                 state.audience && isLoading 
                 ? <Loader />
                 : tags ? (
-                  <div className="form-control mutiple-select">
+                  <div className="form-control multiple-select">
                     <label>Тэги</label>
                     <span className="multiple-selection">{selectedTags.join(', ')}</span>
                     <select value={state.tag} onChange={onChange('tag')}>
