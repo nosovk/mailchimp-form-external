@@ -49,14 +49,14 @@ function App() {
       }
 
     } else if(field === 'tag') {
-      const name = (tags.find((tag) => tag.id == e.target.value)).name;
+      const name = (tags.find((tag) => tag.id === e.target.value)).name;
 
       setSelectedTags((tags) => ([
         ...tags,
         name
       ]));
 
-      setTagsToShow(tagsToShow.filter((item) => item.id != e.target.value));
+      setTagsToShow(tagsToShow.filter((item) => item.id !== e.target.value));
     
     } else {
       setErrors((state) => ({
