@@ -6,7 +6,7 @@
 
 body {
   background-color: #eeeeee;
-  font: 14px/20px 'Helvetica', Arial, sans-serif;
+  font: 14px/20px Helvetica, Arial, sans-serif;
 }
 
 .App {
@@ -39,7 +39,7 @@ h1 {
   margin-top: 8px;
   font-weight: bold;
   line-height: 150%;
-  font-family: Helvetica, serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
   color: #5d5d5d;
 }
@@ -61,7 +61,7 @@ h1 {
   font-weight: 500;
   font-size: 16px;
   line-height: 42px;
-  font-family: 'Helvetica', Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   width: auto;
   white-space: nowrap;
   height: 42px;
