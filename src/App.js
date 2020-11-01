@@ -99,7 +99,7 @@ function App() {
         phone: state.phone
       }
     }
-    fetch('http://localhost:4000/addContact', {
+    fetch('/api/addContact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -119,7 +119,7 @@ function App() {
   useEffect(() => {
     const fetchAudiences = async () => {
       setLoading(true);
-      const resp = await fetch('http://localhost:4000/audiences');
+      const resp = await fetch('/api/audiences');
       const body = await resp.json();
       setAudiences(body);
       setState((state) => ({
@@ -135,7 +135,7 @@ function App() {
     if (state.audience === '') return;
     const fetchTags = async () => {
       setLoading(true);
-      const resp = await fetch(`http://localhost:4000/audiences/${state.audience}/tags`);
+      const resp = await fetch(`/api/audiences/${state.audience}/tags`);
       const body = await resp.json();
       setTags(body);
       setTagsToShow(body);
