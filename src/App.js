@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import isEmail from 'isemail';
 import Loader from './Loader';
 import Select from './Select';
@@ -161,7 +161,7 @@ function App() {
     });
     setTagsToShow(() => {
       return tags.filter((tag) => {
-        const candidateTag = selectedTags.find((item) => item.id == tag.id && item.id !== option.id);
+        const candidateTag = selectedTags.find((item) => item.id === tag.id && item.id !== option.id);
         return !candidateTag;
       })
     });

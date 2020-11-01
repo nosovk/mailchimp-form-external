@@ -1,63 +1,64 @@
 .custom-select-container {
-    position: relative;
+  position: relative;
 }
 
 .custom-select {
-    position: relative;
-    color: gray;
-    font-weight: 600;
-    user-select: none;
+  position: relative;
+  color: gray;
+  font-weight: 600;
+  user-select: none;
 }
 
 .custom-select::after {
-    content: "";
-    border: solid black;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 3px;
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    position: absolute;
-    top: 15px;
-    right: 5px;
+  position: absolute;
+  top: 15px;
+  right: 5px;
+  display: inline-block;
+  padding: 3px;
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  content: "";
 }
-
 
 .custom-select__dropdown {
-    width: 100%;
-    border: 1px solid grey;
-    position: absolute;
-    background: #fff;
-    user-select: none;
-    max-height: 150px;
-    overflow-y: scroll;
+  position: absolute;
+  width: 100%;
+  max-height: 150px;
+  overflow-y: scroll;
+  background: #fff;
+  border: 1px solid grey;
+  user-select: none;
 }
+
 .custom-select__dropdown-option {
-    padding-left: 12px;
+  padding-left: 12px;
 }
+
 .custom-select__dropdown-option:hover {
-    background-color: #4a90d9;
-    color: #fff;
+  color: #fff;
+  background-color: #4a90d9;
 }
 
 .selected-option {
-    display: inline-block;
-    padding: 5px 7px;
-    background-color: #ccc;
-    border-radius: 2px;
-    color: #444343;
-    margin: 2px;
-    margin-right: 10px;
+  display: inline-block;
+  margin: 2px;
+  margin-right: 10px;
+  padding: 5px 7px;
+  color: #444343;
+  background-color: #ccc;
+  border-radius: 2px;
 }
 
 .selected-option__button {
-    background: none;
-    border: none;
-    margin-left: 5px;
-    color: #525151;
-    cursor: pointer;
+  margin-left: 5px;
+  color: #525151;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .selected-option__button:hover {
-    color: #333131;
+  color: #333131;
 }
