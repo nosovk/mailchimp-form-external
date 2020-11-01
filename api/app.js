@@ -27,7 +27,7 @@ app.get('/api/audiences/:id/tags', async (req, res) => {
 // contact - объект - данные контакта
 app.post('/api/addContact', async (req, res) => {
     const { contact, audience, tags } = req.body;
-    const status = 'pending';
+    const status = 'subscribed';
 
     const bodyToSend = {
         email_address: contact.email,
