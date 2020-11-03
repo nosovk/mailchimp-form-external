@@ -213,3 +213,7 @@ small.errors {
 .height-select {
   height: 57px;
 }
+
+.container-header {
+  text-transform: uppercase;
+}

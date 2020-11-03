@@ -61,8 +61,8 @@ function App() {
     }
   };
 
-  const notifySuccess = () => {
-      toast.success('Пользователь добавлен в базу!', {
+  const notifySuccess = (message) => {
+      toast.success(message, {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -76,7 +76,7 @@ function App() {
     setTagsToShow(tags);
   };
 
-  const notifyError = () => toast.error('Пользователь не добавлен в базу!', {
+  const notifyError = (message) => toast.error(message, {
     position: "top-center",
     autoClose: 5000,
     hideProgressBar: false,
@@ -107,10 +107,9 @@ function App() {
       body: JSON.stringify(bodyToSend)
     }).then((resp) => {
       if (resp.ok) {
-        notifySuccess();
+        notifySuccess('Пользователь добавлен в базу!');
       } else {
-        setError('Такой email уже существует!');
-        notifyError();
+        notifyError('Такой email уже существует!');
       }
     }).catch((e) => console.log(e));
   };
@@ -170,7 +169,7 @@ function App() {
   return (
       <div className="App">
         <div className="container">
-          <h1>РЕГИСТРАЦИОННАЯ ФОРМА ДЛЯ РАССЫЛКИ НОВОСТЕЙ И ПРАЙСОВ</h1>
+          <h1 className="container-header">РЕГИСТРАЦИОННАЯ ФОРМА ДЛЯ РАССЫЛКИ НОВОСТЕЙ И ПРАЙСОВ</h1>
           <div className="form-container">
             <form onSubmit={submit}>
               <p>
