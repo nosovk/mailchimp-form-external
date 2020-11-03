@@ -27,7 +27,7 @@ const Select = ({ options, onOptionSelected, onTagDeleted, selectedOptions }) =>
                         selectedOptions.map((option) => (
                             <span key={option.id} className="selected-option">
                                 <span>{ option.name } </span>
-                                <button className="selected-option__button" onClick={(e) => {onTagDeleted(option)}}>&#10006;</button>
+                                <button className="selected-option__button" onClick={() => {onTagDeleted(option)}}>&#10006;</button>
                             </span>
                         ))
                     ) 
