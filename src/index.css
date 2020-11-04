@@ -5,7 +5,7 @@
 }
 
 body {
-  font: 14px/20px Helvetica, Arial, sans-serif;
+  font: 14px/20px 'Helvetica', Arial, sans-serif;
   background-color: #eee;
 }
 
@@ -41,19 +41,23 @@ h1 {
   color: #5d5d5d;
   font-weight: bold;
   font-size: 16px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica, serif;
   line-height: 150%;
 }
 
 .form-control input,
-.form-control select {
+.form-control select,
+.custom-select {
   display: block;
   width: 100%;
   margin: 3px 0 0 0;
   padding: 10px;
+  font-size: 1em;
   background: #fff;
   border: 2px solid #d0d0d0 !important;
   border-radius: 3px;
+
+  /* line-height: 14px; */
 }
 
 .submit {
@@ -65,7 +69,7 @@ h1 {
   color: #fff !important;
   font-weight: 500;
   font-size: 16px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica', Arial, sans-serif;
   line-height: 42px;
   white-space: nowrap;
   text-align: center;
@@ -99,7 +103,6 @@ small.errors {
   display: inline-block;
   width: 80px;
   height: 80px;
-  color: official;
 }
 
 .loader-container {
@@ -202,11 +205,15 @@ small.errors {
 
 .multiple-selection {
   position: absolute;
-  width: 500px;
+  width: 520px;
   padding: 13px 0 0 13px;
   user-select: none;
 }
 
-.multiple-select select {
+.height-select {
   height: 57px;
+}
+
+.container-header {
+  text-transform: uppercase;
 }
