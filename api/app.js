@@ -5,20 +5,33 @@ const app = express();
 
 app.use(express.json());
 
+const basicAuthCredits = Buffer.from(`${process.env.USERNAME}:${process.env.mailchimpkey}`).toString('base64');
+
+
 app.get('/api/audiences', async (req, res) => {
-    const resp = await fetch(`https://us20.api.mailchimp.com/3.0/lists?apikey=${process.env.mailchimpkey}`);
+    const resp = await fetch(`https://us20.api.mailchimp.com/3.0/lists`,{
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Basic ${basicAuthCredits}`
+        }
+    });
     const body = await resp.json();
     const { lists } = body;
-    const mapped = lists.map(({ id, name }) => ({ id , name }));
+    const mapped = lists?.map(({ id, name }) => ({ id , name })) ?? {};
     return res.json(mapped);
 });
 
 app.get('/api/audiences/:id/tags', async (req, res) => {
     const { id } = req.params;
-    const resp = await fetch(`https://us20.api.mailchimp.com/3.0/lists/${id}/segments/?apikey=${process.env.mailchimpkey}&type=static`);
+    const resp = await fetch(`https://us20.api.mailchimp.com/3.0/lists/${id}/segments/?type=static`, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Basic ${basicAuthCredits}`
+        }
+    });
     const body = await resp.json();
     const { segments } = body;
-    const mapped = segments.map(({ id, name }) => ({ id , name }));
+    const mapped = segments?.map(({ id, name }) => ({ id , name })) ?? {};
     return res.json(mapped);
 });
 
@@ -42,7 +55,6 @@ app.post('/api/addContact', async (req, res) => {
     };
 
 
-    const basicAuthCredits = Buffer.from(`${process.env.USERNAME}:${process.env.mailchimpkey}`).toString('base64');
     const resp = await fetch(`https://us20.api.mailchimp.com/3.0/lists/${audience}/members`, {
         method: 'POST',
         headers: {
@@ -59,6 +71,6 @@ app.post('/api/addContact', async (req, res) => {
     return res.status(400).end();
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3001, () => {
     console.log('[OK] Server started on port ' + process.env.PORT);
 });
